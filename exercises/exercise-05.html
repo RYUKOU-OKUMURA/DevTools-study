@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習5: ロジックのバグ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e7f3ff;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>演習5: ロジックのバグを見つけよう</h1>
+  <p>価格と数量を入力して、合計を計算します。でも、計算結果がおかしい...</p>
+
+  <div class="form-group">
+    <label for="price">価格（円）:</label>
+    <input type="number" id="price" value="1000">
+  </div>
+
+  <div class="form-group">
+    <label for="quantity">数量:</label>
+    <input type="number" id="quantity" value="3">
+  </div>
+
+  <button id="calculateButton">合計を計算</button>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('calculateButton').addEventListener('click', () => {
+      // ここにバグがあります！
+      let price = document.getElementById('price').value;
+      let quantity = document.getElementById('quantity').value;
+      let total = price + quantity;  // ← 何かおかしい...
+
+      document.getElementById('result').textContent = `合計: ${total}円`;
+    });
+  </script>
+
+  <p style="margin-top: 30px; color: #666;">
+    <strong>ヒント：</strong> Sources パネルでブレークポイントを設定して、変数の値を確認してみましょう
+  </p>
+</body>
+</html>

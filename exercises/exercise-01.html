@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習1: Console エラー</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>演習1: Console エラーを解決しよう</h1>
+  <p>このボタンをクリックしても何も起こりません。DevTools を使ってバグを見つけてください。</p>
+  <button id="myButton">クリックしてね！</button>
+
+  <script>
+    // メッセージを表示する関数
+    function showMessage() {
+      alert('こんにちは！DevTools でバグを見つけられましたね！');
+    }
+
+    // ボタンにイベントリスナーを追加
+    let button = document.getElementById('myButton');
+    button.addEventListener('click', showMessge);  // ← ここにバグがあります！
+  </script>
+</body>
+</html>

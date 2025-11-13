@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習3: CSS が効かない</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    /* このスタイルが効かない... */
+    .button {
+      background-color: red;
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* こちらのスタイルが優先されている */
+    button.button {
+      background-color: blue;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>演習3: CSS が効かない</h1>
+  <p>ボタンを赤くしたいのに、青いままです。なぜでしょう？</p>
+  <button class="button">赤くなるはず...</button>
+
+  <p style="margin-top: 30px; color: #666;">
+    <strong>ヒント：</strong> Elements パネルで Styles を確認してみましょう
+  </p>
+</body>
+</html>
