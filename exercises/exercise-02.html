@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習2: 要素が見つからない</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: gray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>演習2: 要素が見つからないエラー</h1>
+  <p>ページを開くとエラーが出ます。ボックスが青くなるはずですが...</p>
+  <div class="box">このボックスが青くなるはず</div>
+
+  <script>
+    // ボックスを青くするコード
+    let box = document.querySelector('.boxs');  // ← ここにバグがあります！
+    box.style.backgroundColor = 'blue';
+  </script>
+</body>
+</html>

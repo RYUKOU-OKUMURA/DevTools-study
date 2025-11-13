@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習6: イベントが動かない</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ee5a52;
+    }
+  </style>
+
+  <script>
+    // ここにバグがあります！
+    // この時点では <button> がまだ存在していない
+    let button = document.getElementById('myButton');
+    button.addEventListener('click', () => {
+      alert('こんにちは！');
+    });
+  </script>
+</head>
+<body>
+  <h1>演習6: イベントが動かない</h1>
+  <p>ボタンをクリックしても何も起こりません。エラーも出ていません...</p>
+  <button id="myButton">クリックしてね！</button>
+
+  <p style="margin-top: 30px; color: #666;">
+    <strong>ヒント：</strong> JavaScript の実行タイミングが早すぎるかも？
+  </p>
+</body>
+</html>

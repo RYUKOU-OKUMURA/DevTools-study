@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習4: API エラー</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      min-height: 50px;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>演習4: API エラーを解決しよう</h1>
+  <p>このボタンをクリックすると、ユーザー情報を取得するはずですが...</p>
+  <button id="fetchButton">データ取得</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('fetchButton').addEventListener('click', async () => {
+      let resultDiv = document.getElementById('result');
+      resultDiv.textContent = '読み込み中...';
+
+      try {
+        // ここにバグがあります！URL が間違っています
+        let response = await fetch('https://jsonplaceholder.typicode.com/user/1');
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let data = await response.json();
+        resultDiv.innerHTML = `
+          <strong>ユーザー情報:</strong><br>
+          名前: ${data.name}<br>
+          メール: ${data.email}<br>
+          会社: ${data.company.name}
+        `;
+      } catch (error) {
+        resultDiv.innerHTML = `<span class="error">エラー: ${error.message}</span>`;
+        console.error('取得エラー:', error);
+      }
+    });
+  </script>
+
+  <p style="margin-top: 30px; color: #666;">
+    <strong>ヒント：</strong> Network パネルで Fetch/XHR を確認してみましょう
+  </p>
+</body>
+</html>
